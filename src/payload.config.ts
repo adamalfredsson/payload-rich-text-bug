@@ -4,7 +4,7 @@ import Users from "./collections/Users";
 import { FailsOnSave, SucceedsOnSave } from "./globals/Global";
 
 export default buildConfig({
-  serverURL: "http://localhost:3000",
+  serverURL: process.env.SERVER_URL,
   admin: {
     user: Users.slug,
   },
