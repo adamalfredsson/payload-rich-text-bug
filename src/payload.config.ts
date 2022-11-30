@@ -1,21 +1,18 @@
 import path from "path";
 import { buildConfig } from "payload/config";
-import Examples from "./collections/Examples";
 import Users from "./collections/Users";
+import { FailsOnSave, SucceedsOnSave } from "./globals/Global";
 
 export default buildConfig({
   serverURL: "http://localhost:3000",
   admin: {
     user: Users.slug,
   },
-  collections: [
-    Users,
-    // Add Collections here
-    Examples,
-  ],
+  collections: [Users],
+  globals: [SucceedsOnSave, FailsOnSave],
   localization: {
     defaultLocale: "en",
-    locales: ["en", "fr"],
+    locales: ["en", "zh"],
   },
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
